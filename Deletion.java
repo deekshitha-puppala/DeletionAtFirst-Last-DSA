@@ -45,28 +45,40 @@ public void deleteAtLast() {
         temp = temp.next;
     }
     temp.next = null;
-
 }
+     public void deleteAt(int index, int data) {
+        Node1 n = head;
+        if(index == 0)
+        {
+            deleteAtStart();
+        }
+        for(int i=0;i<index-1;i++) {
+            n = n.next;
+        }
+        n.next = n.next.next;
+    }
 public void display() {
     Node1 n = head;
     while(n.next!=null) {
-        System.out.println(n.data);
+        System.out.print(n.data+" ");
         n=n.next;
     }
-    System.out.println(n.data);
+    System.out.print(n.data);
 }
 public static void main(String[] args) {
-    Demo d = new Demo();
+    Deletion d = new Deletion();
     d.insert(23);
     d.insert(56);
     d.insert(34);
     d.insert(4);
     d.insert(32);
     d.insert(3);
-
-    d.deleteAtStart();
+    d.display();
+    System.out.println();
+  //  d.deleteAtStart();
     
-    d.deleteAtLast();
+  //  d.deleteAtLast();
+    d.deleteAt(2,4);
     d.display();
 }
     
